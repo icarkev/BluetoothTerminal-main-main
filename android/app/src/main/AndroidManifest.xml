@@ -1,0 +1,52 @@
+    <manifest xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+        <!-- Bluetooth Permissions -->
+        <uses-permission android:name="android.permission.BLUETOOTH"/>
+        <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+        <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+            android:usesPermissionFlags="neverForLocation" />
+        <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+        <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE"/>
+
+
+        <!-- Internet (если необходимо для других нужд) -->
+        <uses-permission android:name="android.permission.INTERNET" />
+
+        <!-- Features -->
+        <uses-feature android:name="android.hardware.bluetooth" android:required="true"
+            tools:targetApi="eclair" />
+        <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"
+            tools:targetApi="eclair" />
+
+        <application
+            android:label="Bluetermyy"
+            android:name="${applicationName}"
+            android:icon="@mipmap/ic_launcher"
+            android:networkSecurityConfig="@xml/network_security_config">
+
+            <activity
+                android:name=".MainActivity"
+                android:exported="true"
+                android:launchMode="singleTop"
+                android:theme="@style/LaunchTheme"
+                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+                android:hardwareAccelerated="true"
+                android:windowSoftInputMode="adjustResize">
+
+                <meta-data
+                    android:name="io.flutter.embedding.android.NormalTheme"
+                    android:resource="@style/NormalTheme" />
+
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN"/>
+                    <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
+            </activity>
+
+            <meta-data
+                android:name="flutterEmbedding"
+                android:value="2" />
+        </application>
+    </manifest>
